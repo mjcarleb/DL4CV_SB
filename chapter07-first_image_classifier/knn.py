@@ -52,5 +52,3 @@ model = KNeighborsClassifier(n_neighbors=args["neighbors"],
 model.fit(trainX, trainY)
 print(classification_report(testY, model.predict(testX),
                             target_names=le.classes_))
-
-sdklfjas
