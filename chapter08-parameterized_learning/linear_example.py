@@ -4,6 +4,7 @@
 # import the necessary packages
 import numpy as np
 import cv2
+import matplotlib.pyplot as plt
 
 # initialize the class labels and set the seed of the pseudorandom
 # number generator so we can reproduce our results
@@ -36,5 +37,9 @@ cv2.putText(orig, "Label: {}".format(labels[np.argmax(scores)]),
 	(10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
 # display our input image
-cv2.imshow("Image", orig)
-cv2.waitKey(0)
+
+#cv2.imshow("Image", orig)
+plt.imshow(orig)
+plt.title("Classified Dog")
+plt.show()
+#cv2.waitKey(0)
