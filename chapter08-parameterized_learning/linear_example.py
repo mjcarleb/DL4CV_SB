@@ -29,17 +29,20 @@ scores = W.dot(image) + b
 
 # loop over the scores + labels and display them
 for (label, score) in zip(labels, scores):
-	print("[INFO] {}: {:.2f}".format(label, score))
+    print("[INFO] {}: {:.2f}".format(label, score))
 
 # draw the label with the highest score on the image as our
 # prediction
 cv2.putText(orig, "Label: {}".format(labels[np.argmax(scores)]),
-	(10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
+            (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 255, 0), 2)
 
 # display our input image
 
-#cv2.imshow("Image", orig)
+'''
+cv2.imshow("Image", orig)
+cv2.waitKey(0)
+'''
+
 plt.imshow(orig)
 plt.title("Classified Dog")
 plt.show()
-#cv2.waitKey(0)
