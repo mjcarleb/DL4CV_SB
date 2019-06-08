@@ -1,22 +1,22 @@
 # USAGE
 # python keras_mnist.py --output output/keras_mnist.png
 
-# import the necessary packages
-from sklearn.preprocessing import LabelBinarizer
-from sklearn.metrics import classification_report
-from keras.models import Sequential
-from keras.layers.core import Dense
-from keras.optimizers import SGD
-from keras.datasets import mnist
-from keras import backend as K
+import argparse
+
 import matplotlib.pyplot as plt
 import numpy as np
-import argparse
+from keras.datasets import mnist
+from keras.layers.core import Dense
+from keras.models import Sequential
+from keras.optimizers import SGD
+from sklearn.metrics import classification_report
+# import the necessary packages
+from sklearn.preprocessing import LabelBinarizer
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
 ap.add_argument("-o", "--output", required=True,
-	help="path to the output loss/accuracy plot")
+                help="path to the output loss/accuracy plot")
 args = vars(ap.parse_args())
 
 # grab the MNIST dataset (if this is your first time using this
@@ -49,16 +49,16 @@ model.add(Dense(10, activation="softmax"))
 print("[INFO] training network...")
 sgd = SGD(0.01)
 model.compile(loss="categorical_crossentropy", optimizer=sgd,
-	metrics=["accuracy"])
+              metrics=["accuracy"])
 H = model.fit(trainX, trainY, validation_data=(testX, testY),
-	epochs=100, batch_size=128)
+              epochs=100, batch_size=128)
 
 # evaluate the network
 print("[INFO] evaluating network...")
 predictions = model.predict(testX, batch_size=128)
 print(classification_report(testY.argmax(axis=1),
-	predictions.argmax(axis=1),
-	target_names=[str(x) for x in lb.classes_]))
+                            predictions.argmax(axis=1),
+                            target_names=[str(x) for x in lb.classes_]))
 
 # plot the training loss and accuracy
 plt.style.use("ggplot")

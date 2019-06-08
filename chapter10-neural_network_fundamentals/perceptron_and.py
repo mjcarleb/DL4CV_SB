@@ -1,9 +1,9 @@
 # USAGE
 # python perceptron_and.py
 
+import numpy as np
 # import the necessary packages
 from pyimagesearch.nn import Perceptron
-import numpy as np
 
 # construct the AND dataset
 X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
@@ -19,8 +19,8 @@ print("[INFO] testing perceptron...")
 
 # now that our network is trained, loop over the data points
 for (x, target) in zip(X, y):
-	# make a prediction on the data point and display the result
-	# to our console
-	pred = p.predict(x)
-	print("[INFO] data={}, ground-truth={}, pred={}".format(
-		x, target[0], pred))
+    # make a prediction on the data point and display the result
+    # to our console
+    pred = p.predict(x)
+    print("[INFO] data={}, ground-truth={}, pred={}".format(
+        x, target[0], pred))

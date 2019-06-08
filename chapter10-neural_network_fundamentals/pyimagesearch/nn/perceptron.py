@@ -3,6 +3,7 @@ import numpy as np
 
 class Perceptron:
 	def __init__(self, N, alpha=0.1):
+
 		# initialize the weight matrix and store the learning rate
 		self.W = np.random.randn(N + 1) / np.sqrt(N)
 		self.alpha = alpha
